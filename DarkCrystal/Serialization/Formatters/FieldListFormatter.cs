@@ -4,9 +4,7 @@
 
 using MessagePack;
 using MessagePack.Formatters;
-using DarkCrystal.Encased.Core.ModuleSystem;
 using System.Collections.Generic;
-using DarkCrystal.Encased.Core;
 
 namespace DarkCrystal.Serialization
 {
