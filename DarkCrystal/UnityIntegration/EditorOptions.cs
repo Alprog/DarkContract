@@ -1,11 +1,13 @@
 ﻿
+// Copyright (c) Dark Crystal Games. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
 #if UNITY_EDITOR
 
-using UnityEngine;
 using UnityEditor;
 using System;
 
-namespace DarkCrystal.Encased.Core.Startup
+namespace DarkCrystal.UnityIntegration
 {
     public partial class EditorOptions : EditorWindow
     {

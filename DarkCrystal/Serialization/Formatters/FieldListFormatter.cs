@@ -6,7 +6,6 @@ using MessagePack;
 using MessagePack.Formatters;
 using System.Collections.Generic;
 using DarkCrystal.FieldSystem;
-using DarkCrystal.Encased.Core.ModuleSystem;
 
 namespace DarkCrystal.Serialization
 {

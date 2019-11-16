@@ -1,12 +1,14 @@
 ﻿
-using DarkCrystal.Encased.Core.Startup;
+// Copyright (c) Dark Crystal Games. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using DarkCrystal.Serialization;
 using System;
 using System.IO;
 using UnityEngine;
 using static DarkCrystal.Serialization.Serializer;
 
-namespace DarkCrystal
+namespace DarkCrystal.UnityIntegration
 {
     [StaticDarkContract]
     public class GameState : Singleton<GameState>

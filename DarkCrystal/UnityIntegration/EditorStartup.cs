@@ -1,4 +1,7 @@
 ﻿
+// Copyright (c) Dark Crystal Games. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
 #if UNITY_EDITOR
 
 using System;
@@ -7,7 +10,7 @@ using UnityEditor;
 using UnityScene = UnityEngine.SceneManagement.Scene;
 using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 
-namespace DarkCrystal.Encased.Core.Startup
+namespace DarkCrystal.UnityIntegration
 {
     /*
      * This class is used to localize and wrap dissipated situations that occurs with scripts during Unity editor lifetime.
