@@ -71,7 +71,7 @@ namespace DarkCrystal.Serialization
                         meta = DarkMeta.Get(typeIndex);
                         if (meta == null)
                         {
-                            Logger.Logger.Instance.Warning(String.Format("Can't find typeIndex {0}", typeIndex));
+                            Logger.Instance.Warning(String.Format("Can't find typeIndex {0}", typeIndex));
                             for (int i = 0; i < elementsCount - 1; i++)
                             {
                                 offset += MessagePackBinary.ReadNextBlock(bytes, offset);
@@ -111,7 +111,7 @@ namespace DarkCrystal.Serialization
                 if (meta.TypeIndex == TypeIndex.Invalid)
                 {
                     var message = String.Format("Type index is invalid at {0} ", instance.ToString());
-                    Logger.Logger.Instance.Error(message);
+                    Logger.Instance.Error(message);
                 }
             }
             offset += meta.WriteMembers(Serializer.Instance.State.Settings.Flags, instance, ref bytes, offset, formatterResolver);

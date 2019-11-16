@@ -16,12 +16,10 @@ namespace DarkCrystal.Serialization
         static readonly IFormatterResolver[] resolvers = new[]
         {
             GuidResolver.Instance,
-            LocalizableTextResolver.Instance,
             FieldListResolver.Instance,
             DateTimeResolver.Instance,
-            StringHashResolver.Instance,
             BuiltinResolver.Instance,
-            AttributeResolver.Instance,
+            AttributeFormatterResolver.Instance,
             ForwardDefinitionListResolver.Instance,
             DarkResolver.Instance,
             UnityResolver.Instance,

@@ -4,14 +4,16 @@
 
 using System;
 
-namespace DarkCrystal.Serialization
+namespace DarkCrystal.FieldSystem
 {
     public struct ByteSlice
     {
+        public static byte[] SharedBytes;
+
         public int Offset;
         public int Length;
 
-        public byte[] GetBytes() => The.GameState.OriginalBytes;
+        public byte[] GetBytes() => SharedBytes;
 
         public ByteSlice(int offset, int length)
         {

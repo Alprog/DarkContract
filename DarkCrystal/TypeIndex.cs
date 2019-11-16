@@ -3,8 +3,9 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
+using DarkCrystal.Serialization;
 
-namespace DarkCrystal.Serialization
+namespace DarkCrystal
 {
     [DarkContract(TypeIndex.TypeIndex)]
     public enum TypeIndex
@@ -13,7 +14,7 @@ namespace DarkCrystal.Serialization
 
         TypeIndex = 0,
         GuidObject = 1,
-        
+        Entity = 2,
 
 
         // System

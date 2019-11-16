@@ -4,7 +4,7 @@
 
 using System;
 
-namespace DarkCrystal.Serialization
+namespace DarkCrystal.FieldSystem
 {
     public class DefaultFieldInfo
     {

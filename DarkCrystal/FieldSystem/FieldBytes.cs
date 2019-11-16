@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-namespace DarkCrystal.Serialization
+namespace DarkCrystal.FieldSystem
 {
     public struct FieldBytes : IComparable<FieldBytes>
     {

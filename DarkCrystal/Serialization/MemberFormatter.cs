@@ -84,7 +84,7 @@ namespace DarkCrystal.Serialization
                 catch (Exception exception)
                 {
                     var formatText = "Exception on write member\nType: {0}\nInstance:{1}";
-                    Logger.Logger.Instance.Debug(String.Format(formatText, typeof(T).Name, instance?.ToString() ?? "NULL"));
+                    Logger.Instance.Print(String.Format(formatText, typeof(T).Name, instance?.ToString() ?? "NULL"));
                     throw exception;
                 }
             }

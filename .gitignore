@@ -4,7 +4,5 @@ SampleProject/Temp
 SampleProject/Logs
 SampleProject/obj
 SampleProject/.vs
-SampleProject/Assets/DarkCrystal
-SampleProject/Assets/MessagePack
 *.sln
 *.csproj

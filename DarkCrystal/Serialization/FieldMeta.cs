@@ -6,6 +6,7 @@ using System;
 using System.Reflection;
 using System.Collections.Generic;
 using MessagePack;
+using DarkCrystal.FieldSystem;
 
 namespace DarkCrystal.Serialization
 {
@@ -17,15 +18,12 @@ namespace DarkCrystal.Serialization
 
         public FieldKey Key { get; private set; }
         public Type FieldType { get; private set; }
-        public bool IsModuleType { get; private set; }
-        public bool IsStatType { get; private set; }
 
         public static IEnumerable<FieldKey> Keys => Metas.Keys;
 
         static FieldMeta()
         {
             Metas = new Dictionary<FieldKey, FieldMeta>();
-            ModuleSystem.SubclassMeta.All.ToString(); // ensure initialization
         }
 
         protected FieldMeta()
@@ -58,8 +56,6 @@ namespace DarkCrystal.Serialization
             var generic = typeof(FieldMeta<>).MakeGenericType(type);
             var fieldMeta = generic.InvokeDefaultConstructor() as FieldMeta;
             fieldMeta.FieldType = type;
-            fieldMeta.IsModuleType = type.IsSubclassOf(typeof(ModuleSystem.Module));
-            fieldMeta.IsStatType = type.IsPrimitive;
             fieldMeta.Key = key;
             Metas[key] = fieldMeta;
         }

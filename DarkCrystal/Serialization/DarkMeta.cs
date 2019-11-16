@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using DarkCrystal.FieldSystem;
 using MessagePack;
 
 namespace DarkCrystal.Serialization
@@ -29,7 +30,7 @@ namespace DarkCrystal.Serialization
         {
             MetasByType = new Dictionary<Type, DarkMeta>();
             MetasByIndex = new Dictionary<TypeIndex, DarkMeta>();
-            ScriptsDuplicateKeysCheck.SilentCheck();
+            //ScriptsDuplicateKeysCheck.SilentCheck();
         }
 
         private DarkMeta(Type type)
@@ -47,7 +48,7 @@ namespace DarkCrystal.Serialization
         {
             if (ConstructorInfo == null)
             {
-                Logger.Logger.Instance.Error(String.Format("No constructor at {0} darkmeta", Type.Name));
+                Logger.Instance.Error(String.Format("No constructor at {0} darkmeta", Type.Name));
             }
             return ConstructorInfo.Invoke(EmptyArray<object>.Value);
         }
@@ -56,7 +57,7 @@ namespace DarkCrystal.Serialization
         {
             if (ConstructorInfo == null)
             {
-                Logger.Logger.Instance.Error(String.Format("No constructor at {0} darkmeta", Type.Name));
+                Logger.Instance.Error(String.Format("No constructor at {0} darkmeta", Type.Name));
             }
             return ConstructorInfo.Invoke(new object[] { arg });
         }
@@ -182,7 +183,7 @@ namespace DarkCrystal.Serialization
                     if (LastKeyAttribute == null)
                     {
                         LastKeyAttribute = new LastKeyAttribute();
-                        Logger.Logger.Instance.Error("Type {0} contains unsetted keys, but it has no one [LastKey] attribute. Saves won't work properly!", Type.FullName);
+                        Logger.Instance.Error("Type {0} contains unsetted keys, but it has no one [LastKey] attribute. Saves won't work properly!", Type.FullName);
                     }
                     key.Value = LastKeyAttribute.Value++;
                 }
@@ -315,7 +316,7 @@ namespace DarkCrystal.Serialization
                             else
                             {
                                 var message = String.Format("unknown serializaion data: {0}:{1}", Type.Name, i);
-                                Logger.Logger.Instance.Warning(message);
+                                Logger.Instance.Warning(message);
                                 offset += MessagePackBinary.ReadNextBlock(bytes, offset);
                             }
                         }

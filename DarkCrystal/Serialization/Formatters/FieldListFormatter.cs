@@ -5,6 +5,8 @@
 using MessagePack;
 using MessagePack.Formatters;
 using System.Collections.Generic;
+using DarkCrystal.FieldSystem;
+using DarkCrystal.Encased.Core.ModuleSystem;
 
 namespace DarkCrystal.Serialization
 {
@@ -31,10 +33,6 @@ namespace DarkCrystal.Serialization
             foreach (var pair in list)
             {
                 bool isValueProducer = pair.Value != null && pair.Value is ValueProducer;
-                if (isValueProducer && pair.Value == LazyProducer.Instance)
-                {
-                    continue;
-                }
 
                 state.StartLocalGroup();                
                 var groupStartOffset = offset;
