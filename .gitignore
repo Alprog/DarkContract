@@ -2,3 +2,7 @@
 SampleProject/Library
 SampleProject/Temp
 SampleProject/Logs
+SampleProject/obj
+SampleProject/.vs
+*.sln
+*.csproj
