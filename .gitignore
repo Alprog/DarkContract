@@ -1,3 +1,4 @@
+*.meta
 SampleProject/Library
 SampleProject/Temp
 SampleProject/Logs
