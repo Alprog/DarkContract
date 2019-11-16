@@ -1,2 +1,2 @@
-mklink /D "../../DarkCrystal"
-mklink /D "../../MessagePack-CSharp/src/MessagePack.UnityClient/Assets/Scripts/MessagePack"
+mklink DarkCrystal /J "../../DarkCrystal"
+mklink MessagePack /J "../../MessagePack-CSharp/src/MessagePack.UnityClient/Assets/Scripts/MessagePack"
