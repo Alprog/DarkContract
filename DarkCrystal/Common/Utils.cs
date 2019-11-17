@@ -73,6 +73,59 @@ namespace DarkCrystal
             return maxTime;
         }
 
+        public static Texture2D MakeTexture(int width, int height, Color color)
+        {
+            if (width <= 0 || height <= 0)
+            {
+                return null;
+            }
+            var pix = new Color[width * height];
+            for (int i = 0; i < pix.Length; ++i)
+            {
+                pix[i] = color;
+            }
+            var result = new Texture2D(width, height, TextureFormat.RGBA32, false, true);
+            result.SetPixels(pix);
+            result.Apply();
+            return result;
+        }
+
+        public static Texture2D MakeBorderedTexture(int width, int height, int borderSize, Color borderColor, Color innerColor)
+        {
+            if (width <= 0 || height <= 0)
+            {
+                return null;
+            }
+            Color[] pix = new Color[width * height];
+            int xIndex = 0;
+            int yIndex = 0;
+            for (int i = 0; i < pix.Length; ++i)
+            {
+                if (xIndex == width)
+                {
+                    yIndex++;
+                    xIndex = 0;
+                }
+
+                if (xIndex < borderSize || xIndex >= (width - borderSize) || yIndex < borderSize || yIndex >= (height - borderSize))
+                {
+                    pix[i] = borderColor;
+                }
+                else
+                {
+                    pix[i] = innerColor;
+                }
+
+                xIndex++;
+
+            }
+            var result = new Texture2D(width, height, TextureFormat.RGBA32, false, true);
+            result.filterMode = FilterMode.Point;
+            result.SetPixels(pix);
+            result.Apply();
+            return result;
+        }
+
 #if UNITY_EDITOR
         public static void RefreshEditors()
         {

@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using DarkCrystal.Serialization;
+using DarkCrystal.UnityIntegration;
 
 namespace DarkCrystal.FieldSystem
 {

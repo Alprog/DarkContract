@@ -8,7 +8,7 @@ namespace DarkCrystal
 {
     public class Config
     {
-        public const string StaticDistributedFolder = "Assets/Content/GameData/";
+        public const string StaticDistributedFolder = "Assets/GameData/";
         public const string StaticBuildPackageFileName = "StaticData.sav";
         public const string TempEditorStateFile = "EditorTempState.sav";
 
