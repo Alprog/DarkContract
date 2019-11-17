@@ -1,8 +1,8 @@
 *.meta
-SampleProject/Library
-SampleProject/Temp
-SampleProject/Logs
-SampleProject/obj
-SampleProject/.vs
+ExampleProject/Library
+ExampleProject/Temp
+ExampleProject/Logs
+ExampleProject/obj
+ExampleProject/.vs
 *.sln
 *.csproj
