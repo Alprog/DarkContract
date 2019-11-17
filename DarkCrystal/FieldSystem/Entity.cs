@@ -10,6 +10,8 @@ namespace DarkCrystal.FieldSystem
     [DarkContract(TypeIndex.Entity)]
     public partial class Entity : GuidObject
     {
+        protected override bool Reg(bool state) => base.Reg(state) && Registrator.SetObject(this, state);
+
         [Key(0)] public override string ID { get; set; }
 
         public FieldStorage Fields;

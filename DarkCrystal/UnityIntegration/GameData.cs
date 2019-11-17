@@ -10,11 +10,11 @@ namespace DarkCrystal
     public class GameData
     {
         [Key(0, "RootFolder")]
-        public GuidObject.Folder Entities;
+        public GuidObject.Folder RootFolder;
         
         public GameData()
         {
-            Entities = new GuidObject.Folder("RootFolder");
+            RootFolder = new GuidObject.Folder("RootFolder");
         }
     }
 }

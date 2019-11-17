@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using DarkCrystal.FieldSystem;
 using DarkCrystal.Serialization;
 
@@ -8,45 +9,29 @@ namespace DarkCrystal
     [AbstractDarkContract]
     public abstract partial class GuidObject
     {
-        public Guid Guid { get; protected set; }
+        protected virtual bool Reg(bool state) => Registrator.SetObject(this, state);
 
+        public static void ReleaseAll()
+        {
+            if (GuidStorage<GuidObject>.Count > 0)
+            {
+                var list = new List<GuidObject>();
+                list.AddRange(GuidStorage<GuidObject>.Items);
+                foreach (var guidObject in list)
+                {
+                    guidObject.Release();
+                }
+            }
+        }
+
+        public Guid Guid { get; protected set; }
         public Folder ParentFolder { get; protected set; }
 
         public abstract string ID { get; set; }
 
-        public virtual Type SubclassType => GetType();
-
         public GuidObject(Guid guid)
         {
             this.Guid = guid;
-        }
-
-        public string FullPath
-        {
-            get
-            {
-                var currentFolder = ParentFolder;
-                if (currentFolder == null)
-                {
-                    return String.Empty;
-                }
-
-                string path = currentFolder.Name;
-                while ((currentFolder = currentFolder.Parent) != null)
-                {
-                    path = currentFolder.Name + "/" + path;
-                }
-                return path;
-            }
-        }
-
-        public void Reparent(Folder newParentFolder)
-        {
-            if (this.ParentFolder != null)
-            {
-                this.ParentFolder.Remove(this);
-            }
-            newParentFolder.Add(this);
         }
 
         private void SetParentFolder(Folder folder)
@@ -54,7 +39,7 @@ namespace DarkCrystal
             this.ParentFolder = folder;
         }
 
-        public virtual void Release(bool releaseAll = false)
+        public virtual void Release()
         {
             if (ParentFolder != null)
             {
@@ -69,7 +54,7 @@ namespace DarkCrystal
 
         public override string ToString()
         {
-            return String.Format("GuidObject [{0}]", Guid.ToString());
+            return String.Format("{0} [{1}]", this.GetType().Name, Guid.ToString());
         }
 
         public GuidObject Clone(Guid newGuid, string newID)
@@ -102,8 +87,6 @@ namespace DarkCrystal
             }
             return clone;
         }
-
-        public virtual void OnDoubleClicked() { }
 
         public ByteSlice OriginalBytes;
     }

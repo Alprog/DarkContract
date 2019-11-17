@@ -8,7 +8,7 @@ namespace DarkCrystal.UnityIntegration
 {
     public class DataExplorerWindow : EditorWindow
     {
-        [MenuItem("Window/DataExplorer")]
+        [MenuItem("DataContractExample/DataExplorer")]
         public static DataExplorerWindow ShowWindow()
         {
             var window = EditorWindow.GetWindow(typeof(DataExplorerWindow)) as DataExplorerWindow;

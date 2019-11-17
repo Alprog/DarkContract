@@ -25,7 +25,7 @@ namespace DarkCrystal.UnityIntegration
             {
                 if (IsStatic)
                 {
-                    return null;////IsOnePackage ? new ForwardDefinitionList(GuidStorage<GuidObject>.Items) : null;
+                    return IsOnePackage ? new ForwardDefinitionList(GuidStorage<GuidObject>.Items) : null;
                 }
                 else
                 {
@@ -62,7 +62,7 @@ namespace DarkCrystal.UnityIntegration
         public void ReloadDatabase()
         {
 #if UNITY_EDITOR
-            //DataExplorer.Instance.Unselect();
+            DataExplorer.Instance.Unselect();
 #endif
             LoadInitialState();
 #if UNITY_EDITOR
@@ -72,7 +72,7 @@ namespace DarkCrystal.UnityIntegration
         
         public void Clear()
         {
-            //GuidObject.ReleaseAll();
+            GuidObject.ReleaseAll();
             ForwardDefinitionList = null;
             GameData = null;
         }
