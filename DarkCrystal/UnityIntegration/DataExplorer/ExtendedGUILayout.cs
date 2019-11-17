@@ -538,16 +538,6 @@ namespace DarkCrystal.UnityIntegration
             EditorGUILayout.LabelField(String.Empty, GUI.skin.horizontalSlider);
         }
 
-        public static void TightVerticalLine(float width = 1f)
-        {
-            EditorGUILayout.LabelField(String.Empty, GUIStyles.OnePixelLine, GUILayout.Width(width), GUILayout.ExpandHeight(true));
-        }
-
-        public static void TightHorizontalLine(float width = 1f)
-        {
-            EditorGUILayout.LabelField(String.Empty, GUIStyles.OnePixelLine, GUILayout.ExpandWidth(true), GUILayout.Height(width));
-        }
-
         public static void HorizontalLine(float topMargin, float borMargin)
         {
             Layout.Space(topMargin);

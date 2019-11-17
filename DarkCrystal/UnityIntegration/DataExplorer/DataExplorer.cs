@@ -119,8 +119,6 @@ namespace DarkCrystal.UnityIntegration
 
             UnityEngine.GUI.enabled = true;
 
-            DrawSelectorByGuid();
-           
             ScrollPosition = GUIClipStack.BeginScroll(ScrollPosition, GUIStyles.DarkGrayBackground);
 
             var gameData = GameState.Instance.GameData;
@@ -135,17 +133,6 @@ namespace DarkCrystal.UnityIntegration
         public void Unselect()
         {
             Selector.Unselect();
-        }
-
-        public void DrawSelectorByGuid()
-        {
-            var guidText = EditorGUILayout.TextField("Select:", "<insert guid>");
-            Guid guid;
-            if (Guid.TryParse(guidText, out guid))
-            {
-                var guidObject = GuidStorage.Get(guid);
-                Select(guidObject);
-            }
         }
 
         public void DrawFolderContent(GuidObject.Folder folder, bool allowAdding = true)

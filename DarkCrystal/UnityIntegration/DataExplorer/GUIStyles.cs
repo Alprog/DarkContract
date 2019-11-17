@@ -13,7 +13,6 @@ namespace DarkCrystal
         public static GUIStyle RightAlignmentButton;
         public static GUIStyle ReadOnly;
         public static GUIStyle Panel;
-        public static GUIStyle OnePixelLine;
         public static GUIStyle TightLabel;
         public static GUIStyle ListItem;
         public static GUIStyle BlueListItem;
@@ -44,7 +43,7 @@ namespace DarkCrystal
 
         public static void OnGUI()
         {
-            if (!GrayTexture || !BlueTexture || (OnePixelLine == null || OnePixelLine.normal.background == null))
+            if (!GrayTexture || !BlueTexture)
             {
                 Reinit();
             }
@@ -76,9 +75,6 @@ namespace DarkCrystal
 
             Panel = new GUIStyle(UnityEngine.GUI.skin.box);
             SetMarginAndPadding(Panel, 0, 2);
-
-            SetMarginAndPadding(OnePixelLine, 0, 0);
-
             TightLabel = new GUIStyle(UnityEngine.GUI.skin.label);
             SetMarginAndPadding(TightLabel, 0, 0);
 
