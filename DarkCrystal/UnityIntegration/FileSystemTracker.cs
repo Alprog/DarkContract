@@ -18,7 +18,7 @@ namespace DarkCrystal
 
 #if UNITY_EDITOR
         private Dictionary<string, FileSystemWatcher> Watchers;
-        
+       
         public void Run(string path)
         {
             Stop();

@@ -69,46 +69,10 @@ namespace DarkCrystal
                     return;
                 }
             }
-
+            
             File.WriteAllBytes(path, bytes);
             var time = File.GetLastWriteTimeUtc(path);
             FileCaches[path] = new FileCache(time, bytes, text);
-        }
-
-        public static void WriteAllBytesAsync(string path, byte[] bytes)
-        {
-            AddAsyncAction(() => WriteAllBytes(path, bytes));
-        }
-
-        private static void AddAsyncAction(System.Action action)
-        {
-            AsyncQueue.Enqueue(action);
-            EnsureJob();
-        }
-
-        private static void EnsureJob()
-        {
-            if (!ThreadRunning)
-            {
-                ThreadRunning = true;
-                Thread = new Thread(Job);
-                Thread.Start();
-            }
-        }
-
-        private static void Job()  
-        {
-            while (true)
-            {
-                while (AsyncQueue.Count > 0)
-                {
-                    if (AsyncQueue.TryDequeue(out var action))
-                    {
-                        action();
-                    }
-                }
-                Thread.Sleep(300);
-            }
         }
     }
 }

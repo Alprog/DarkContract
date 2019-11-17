@@ -26,7 +26,7 @@ namespace DarkCrystal
 
         public Guid Guid { get; protected set; }
         public Folder ParentFolder { get; protected set; }
-
+        
         public abstract string ID { get; set; }
 
         public GuidObject(Guid guid)
@@ -54,7 +54,7 @@ namespace DarkCrystal
 
         public override string ToString()
         {
-            return String.Format("{0} [{1}]", this.GetType().Name, Guid.ToString());
+            return String.Format("{0} [{1}]", ID, Guid.ToString());
         }
 
         public GuidObject Clone(Guid newGuid, string newID)

@@ -6,11 +6,13 @@
 		"EntityA",
 		//FieldsSerialization:
 		[
-			//Parents:
 			null,
-			//OwnValues:
+			//Parents:
 			[
-			]
+
+			],
+			//OwnValues:
+			null
 		]
 	]
 ]

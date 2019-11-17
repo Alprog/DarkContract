@@ -5,6 +5,8 @@
 using DarkCrystal.Serialization;
 using System;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using static DarkCrystal.Serialization.Serializer;
 
@@ -66,10 +68,11 @@ namespace DarkCrystal.UnityIntegration
 #endif
             LoadInitialState();
 #if UNITY_EDITOR
-            Utils.RefreshEditors();          
+            Utils.RefreshEditors();
 #endif
+            FileSystemTracker.Instance.CommitChanges();
         }
-        
+
         public void Clear()
         {
             GuidObject.ReleaseAll();
@@ -86,6 +89,11 @@ namespace DarkCrystal.UnityIntegration
             Serializer.Instance.SerializeToFile(this, Config.StaticDistributedFile, settings);
 #if UNITY_EDITOR
             EditorOptions.LastDataBaseSyncTime = DateTime.UtcNow;
+            System.Threading.Tasks.Task.Run(() =>
+            {
+                Thread.Sleep(1000);
+                FileSystemTracker.Instance.CommitChanges();
+            });
 #endif
         }
 

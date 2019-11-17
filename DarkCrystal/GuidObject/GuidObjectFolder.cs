@@ -261,13 +261,10 @@ namespace DarkCrystal
                     var path = Utils.PathCombine(folderPath, item.GetFileName() + ".sav");
                     var settings = new SerializationSettings(flags, item);
                     var bytes = Serializer.Instance.Serialize(item, settings);
-                    FileSystemCache.WriteAllBytesAsync(path, bytes);
+                    FileSystemCache.WriteAllBytes(path, bytes);
 
                     oldFiles.Remove(path.ToLowerInvariant());
                 });
-
-                var settingsPath = Utils.PathCombine(folderPath, "settings.ini");
-                SaveSettings(settingsPath);
 
                 foreach (var subFolder in SubFolders.Values)
                 {
@@ -294,9 +291,6 @@ namespace DarkCrystal
                     }
                 }
                 JoinItems(items);
-
-                var settingsPath = Utils.PathCombine(folderPath, "settings.ini");
-                LoadSettings(settingsPath);
 
                 foreach (var subDirInfo in dirInfo.GetDirectories())
                 {
@@ -558,53 +552,6 @@ namespace DarkCrystal
                 return list;
             }
 
-            public List<string> GetProhibitedFolderNamesInThisScope(GuidObject.Folder exceptFolder = null)
-            {
-                var list = new List<string>();
-                var baseFolder = GetBaseFolderAtSameScope();
-                list.Add(baseFolder.Name);
-                list.AddRange(baseFolder.GetSubfolderNamesInChildScope(exceptFolder));
-                return list;
-            }
-
-            public List<string> GetProhibitedFolderNamesForNewChild(GuidObject.Folder exceptFolder = null)
-            {
-                var list = GetProhibitedFolderNamesInThisScope(exceptFolder);
-                if (!list.Contains(Name))
-                {
-                    list.Add(Name);
-                }
-                foreach (var subfolder in SubFolders.Values)
-                {
-                    if (subfolder != exceptFolder && !list.Contains(subfolder.Name))
-                    {
-                        list.Add(subfolder.Name);
-                    }
-                }
-                return list;
-            }
-
-            public List<string> GetSubfolderNamesInChildScope(GuidObject.Folder exceptFolder = null)
-            {
-                var list = new List<string>();
-                foreach (var subfolder in SubFolders.Values)
-                {
-                    if (subfolder == exceptFolder)
-                    {
-                        continue;
-                    }
-                    if (subfolder.SkipCodegen)
-                    {
-                        list.AddRange(subfolder.GetSubfolderNamesInChildScope(exceptFolder));
-                    }
-                    else
-                    {
-                        list.Add(subfolder.Name);
-                    }
-                }
-                return list;
-            }
-
             public List<string> GetScopeIds(GuidObject guidObject)
             {
                 return GetScopeIds(guidObject?.ID);
@@ -645,33 +592,6 @@ namespace DarkCrystal
                 {
                     folder.FoldOut = false;
                     folder.FoldInRecursive();
-                }
-            }
-
-            public void SaveSettings(string filePath)
-            {
-                var builder = new StringBuilder();
-                if (SkipCodegen) 
-                {
-                    builder.AppendLine("SkipCodegen");
-                }
-
-                var bytes = Encoding.ASCII.GetBytes(builder.ToString());
-                FileSystemCache.WriteAllBytesAsync(filePath, bytes);
-            }
-
-            public void LoadSettings(string filePath)
-            {
-                if (File.Exists(filePath))
-                {
-                    var text = FileSystemCache.ReadAllText(filePath);
-                    foreach (var line in text.Split('\r'))
-                    {
-                        if (line == "SkipCodegen")
-                        {
-                            this.SkipCodegen = true;
-                        }
-                    }
                 }
             }
         }
