@@ -4,5 +4,7 @@ ExampleProject/Temp
 ExampleProject/Logs
 ExampleProject/obj
 ExampleProject/.vs
+ExampleProject/EditorTempState.sav
 *.sln
 *.csproj
+.vs

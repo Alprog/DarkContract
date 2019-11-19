@@ -125,7 +125,7 @@ namespace DarkCrystal.UnityIntegration
         private static void OnPlayTestSceneLoaded(UnityScene playTestScene, UnityEngine.SceneManagement.LoadSceneMode mode)
         {
             UnitySceneManager.sceneLoaded -= OnPlayTestSceneLoaded;
-            Debug.Log("Started");
+            GameState.Instance.LoadTempEditorState();
         }
 
         private static bool IsTempMemoryKeptOnHotReload()
