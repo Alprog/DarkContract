@@ -1,0 +1,32 @@
+[
+	2,
+	"0b8162c5-0c60-4b0c-8c09-d57e8b5a83a5",
+	[
+		//ID:
+		"EntityB",
+		//FieldsSerialization:
+		[
+			null,
+			//Parents:
+			null,
+			//OwnValues:
+			[
+				3,
+				2,
+				77,
+				4,
+				0,
+				"China",
+				4,
+				2,
+				"this is notes",
+				5,
+				0,
+				[
+					2,
+					"9d212170-97dd-4956-a178-7de5b47eb511"
+				]
+			]
+		]
+	]
+]

@@ -126,6 +126,21 @@ namespace DarkCrystal
             return result;
         }
 
+        public static List<T> ToList<T>(this IEnumerable<T> ienumerable)
+        {
+            var list = new List<T>();
+            foreach (T item in ienumerable)
+            {
+                list.Add(item);
+            }
+            return list;
+        }
+
+        public static string ToString(object @object)
+        {
+            return @object != null ? @object.ToString() : "null";
+        }
+
 #if UNITY_EDITOR
         public static void RefreshEditors()
         {

@@ -24,6 +24,18 @@ namespace DarkCrystal.Serialization
         static FieldMeta()
         {
             Metas = new Dictionary<FieldKey, FieldMeta>();
+
+            foreach (var type in Utils.GetAssemblyTypes())
+            {
+                var attribute = type.GetCustomAttribute<FieldTypeAttribute>();
+                if (attribute != null)
+                {
+                    foreach (Enum value in type.GetEnumValues())
+                    {
+                        Register(value.ToFieldKey(), attribute.FieldType);
+                    }
+                }
+            }
         }
 
         protected FieldMeta()

@@ -32,6 +32,7 @@ namespace DarkCrystal
         public GuidObject(Guid guid)
         {
             this.Guid = guid;
+            Reg(true);
         }
 
         private void SetParentFolder(Folder folder)
@@ -41,6 +42,7 @@ namespace DarkCrystal
 
         public virtual void Release()
         {
+            Reg(false);
             if (ParentFolder != null)
             {
                 ParentFolder.Remove(this);

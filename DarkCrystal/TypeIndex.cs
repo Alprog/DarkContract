@@ -16,8 +16,15 @@ namespace DarkCrystal
         GuidObject = 1,
         Entity = 2,
 
+        IntField = 3,
+        StringField = 4,
+        EntityField = 5,
 
-        // System
+        BaseNode = 6,
+        DerivedNode = 7,
+
+        // <- extend here
+
         SystemField = UInt16.MaxValue
     }
 }

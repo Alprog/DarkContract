@@ -8,7 +8,7 @@ using DarkCrystal.Serialization;
 namespace DarkCrystal.FieldSystem
 {
     [StaticDarkContract] [Serializable]
-    public struct FieldKey : IComparable<FieldKey>
+    public partial struct FieldKey : IComparable<FieldKey>
     {
         [Key(0)] public readonly TypeIndex TypeId;
         [Key(1)] public readonly int MemberId;
