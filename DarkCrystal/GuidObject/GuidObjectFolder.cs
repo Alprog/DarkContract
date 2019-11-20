@@ -2,12 +2,11 @@
 // Copyright (c) Dark Crystal Games. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using DarkCrystal.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
-using DarkCrystal.Serialization;
 
 namespace DarkCrystal
 {

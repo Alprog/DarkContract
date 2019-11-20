@@ -2,10 +2,10 @@
 // Copyright (c) Dark Crystal Games. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using MessagePack;
 using System;
 using System.IO;
 using System.Text;
-using MessagePack;
 
 namespace DarkCrystal.Serialization
 {
