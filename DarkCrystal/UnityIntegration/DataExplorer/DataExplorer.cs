@@ -13,9 +13,6 @@ namespace DarkCrystal.UnityIntegration
     public partial class DataExplorer : Singleton<DataExplorer>
     {
         public const int FoldOffset = 12;
-        public const int IconWidth = 17;
-        private const int PickerWidth = 11;
-        private const int AddComboboxWidth = 25;
 
         private GameData GameData;
 
