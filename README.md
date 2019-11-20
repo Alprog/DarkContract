@@ -4,7 +4,7 @@ Serialization frontend over MessagePack-CSharp
 
 ### Description
 
-Video talk about this repo: <link will be added later>
+Video talk about this repo: link will be added later
 
 ### How to use example
 
