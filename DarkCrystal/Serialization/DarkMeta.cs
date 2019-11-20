@@ -30,7 +30,6 @@ namespace DarkCrystal.Serialization
         {
             MetasByType = new Dictionary<Type, DarkMeta>();
             MetasByIndex = new Dictionary<TypeIndex, DarkMeta>();
-            //ScriptsDuplicateKeysCheck.SilentCheck();
         }
 
         private DarkMeta(Type type)
