@@ -14,7 +14,9 @@ namespace DarkCrystal.Serialization
         Abstract = 1 << 1,
         Serializable = 1 << 2,
         Sealed = 1 << 3,
-        Inline = 1 << 4
+        Inline = 1 << 4,
+        SkipReading = 1 << 5,
+        SkipWriting = 1 << 6
     }
 
     public static class DarkFlagsExtensions
@@ -24,5 +26,7 @@ namespace DarkCrystal.Serialization
         public static bool IsSerializable(this DarkFlags flags) => flags.HasFlag(DarkFlags.Serializable);
         public static bool IsSealed(this DarkFlags flags) => flags.HasFlag(DarkFlags.Sealed);
         public static bool IsInline(this DarkFlags flags) => flags.HasFlag(DarkFlags.Inline);
+        public static bool IsSkipReading(this DarkFlags flags) => flags.HasFlag(DarkFlags.SkipReading);
+        public static bool IsSkipWriting(this DarkFlags flags) => flags.HasFlag(DarkFlags.SkipWriting);
     }
 }

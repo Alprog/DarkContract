@@ -5,7 +5,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace DarkCrystal
+namespace DarkCrystal.UnityIntegration
 {
     public class FileSystemTracker : Singleton<FileSystemTracker>
     {

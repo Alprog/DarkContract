@@ -208,18 +208,6 @@ namespace DarkCrystal.Serialization
         private void InitTypeIndex()
         {
             TypeIndex = TypeRegistry.GetIndex(Type);
-
-            if (TypeIndex != TypeIndex.Invalid && Type.IsSubclassOf(typeof(Module)))
-            {
-                if (BaseMeta?.DefaultFieldInfo == null || Flags.IsIgnoreBaseModule())
-                {
-                    DefaultFieldInfo = new DefaultFieldInfo(Type, TypeIndex);
-                }
-                else
-                {
-                    DefaultFieldInfo = BaseMeta.DefaultFieldInfo;
-                }
-            }
         }
 
         public int WriteMembers(SerializationFlags flags, object instance, ref byte[] bytes, int offset, IFormatterResolver formatterResolver, bool recursive = true)

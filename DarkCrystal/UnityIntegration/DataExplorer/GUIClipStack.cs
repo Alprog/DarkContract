@@ -9,7 +9,7 @@ using UnityEditor;
 using System;
 using System.Collections.Generic;
 
-namespace DarkCrystal
+namespace DarkCrystal.UnityIntegration
 {
     public static class GUIClipStack
     {

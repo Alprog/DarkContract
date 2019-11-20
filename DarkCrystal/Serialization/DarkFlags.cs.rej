@@ -1,0 +1,13 @@
+diff a/DarkCrystal/Serialization/DarkFlags.cs b/DarkCrystal/Serialization/DarkFlags.cs	(rejected hunks)
+@@ -14,10 +14,7 @@
+         Abstract = 1 << 1,
+         Serializable = 1 << 2,
+         Sealed = 1 << 3,
+-        Inline = 1 << 4,
+-        SkipReading = 1 << 5,
+-        SkipWriting = 1 << 6,
+-        IgnoreBaseModule = 1 << 7
++        Inline = 1 << 4
+     }
+ 
+     public static class DarkFlagsExtensions

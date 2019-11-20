@@ -4,7 +4,7 @@
 
 using DarkCrystal.Serialization;
 
-namespace DarkCrystal
+namespace DarkCrystal.UnityIntegration
 {
     [InlineDarkContract]
     public class GameData
